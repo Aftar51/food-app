@@ -27,22 +27,22 @@ class Transaction extends Equatable {
   });
 
   Transaction copyWith({
-    required int? id,
-    required Food? food,
-    required int? quantity,
-    required int? total,
-    required DateTime? dateTime,
-    required TransactionStatus? status,
-    required User? user,
+    int? id,
+    Food? food,
+    int? quantity,
+    int? total,
+    DateTime? dateTime,
+    TransactionStatus? status,
+    User? user,
   }) {
     return Transaction(
-      id : id ?? this.id,
-      food : food ?? this.food,
-      quantity : quantity ?? this.quantity,
-      total : total ?? this.total,
-      dateTime : dateTime ?? this.dateTime,
-      status : status ?? this.status,
-      user : user ?? this.user,
+      id: id ?? this.id,
+      food: food ?? this.food,
+      quantity: quantity ?? this.quantity,
+      total: total ?? this.total,
+      dateTime: dateTime ?? this.dateTime,
+      status: status ?? this.status,
+      user: user ?? this.user,
     );
   }
 
@@ -84,7 +84,16 @@ List<Transaction> mockTransaction = [
     quantity: 7,
     total: (mockFoods[3].price! * 7 * 1.1).toInt() + 50000,
     dateTime: DateTime.now(),
-    status: TransactionStatus.delivered,
+    status: TransactionStatus.canceled,
+    user: mockUser,
+  ),
+  Transaction(
+    id: 4,
+    food: mockFoods[5],
+    quantity: 5,
+    total: (mockFoods[5].price! * 5 * 1.1).toInt() + 50000,
+    dateTime: DateTime.now(),
+    status: TransactionStatus.pending,
     user: mockUser,
   ),
 ];

@@ -1,5 +1,7 @@
 part of 'models.dart';
 
+enum FoodType { new_food, populer, recommended }
+
 class Food extends Equatable {
   final int? id;
   final String? name;
@@ -8,6 +10,7 @@ class Food extends Equatable {
   final String? ingredienst;
   final double? price;
   final double? rate;
+  final List<FoodType>? types;
 
   Food({
     this.id,
@@ -17,6 +20,7 @@ class Food extends Equatable {
     this.description,
     this.price,
     this.rate,
+    this.types = const [],
   });
 
   @override
@@ -28,7 +32,7 @@ class Food extends Equatable {
         ingredienst,
         description,
         price,
-        rate,
+        rate
       ];
 }
 
@@ -40,9 +44,11 @@ List<Food> mockFoods = [
     name: 'Sate Sayur Sultan',
     description:
         'Sate Sayur Sultan adalah menu sate vegan paling terkenal di Jakarta. Sate ini dibuat dari berbagai macam bahan berkualitas terbaik dan langsung dibuat oleh chef handal. Sate ini sangat sehat dan bergizi.',
-    ingredienst: 'Jamur Tiram, Tahu, Tempe, Paprika merah, kuning, dan hijau, Zucchini,Bawang Bombay, Tomat Ceri, Wortel, Terong Ungu, Kacang Panjang',
+    ingredienst:
+        'Jamur Tiram, Tahu, Tempe, Paprika merah, kuning, dan hijau, Zucchini,Bawang Bombay, Tomat Ceri, Wortel, Terong Ungu, Kacang Panjang',
     price: 150000,
     rate: 4.2,
+    types: [FoodType.populer, FoodType.recommended],
   ),
   Food(
     id: 2,
@@ -51,9 +57,11 @@ List<Food> mockFoods = [
     name: 'Nasi Goreng Kambing',
     description:
         'Nasi Goreng Kambing spesial dengan bumbu rempah rahasia yang kaya akan cita rasa. Cocok untuk Anda yang menggemari makanan gurih dan pedas.',
-    ingredienst: 'Nasi putih, Daging kambing, Bawang merah, Bawang putih, Cabe merah besar, Cabe rawit, Tomat, Daun bawang, Kecap manis, Minyak goreng, Telur, Acar mentimun',
+    ingredienst:
+        'Nasi putih, Daging kambing, Bawang merah, Bawang putih, Cabe merah besar, Cabe rawit, Tomat, Daun bawang, Kecap manis, Minyak goreng, Telur, Acar mentimun',
     price: 25000,
     rate: 4.5,
+    types: [FoodType.new_food, FoodType.recommended],
   ),
   Food(
     id: 3,
@@ -62,9 +70,11 @@ List<Food> mockFoods = [
     name: 'Mie Ayam Jamur',
     description:
         'Mie Ayam Jamur dengan topping ayam yang empuk dan jamur yang segar, disajikan dengan kuah kaldu yang lezat.',
-    ingredienst: 'Mie telur, Daging ayam fillet, Jamur kancing, Sawi hijau, Bawang merah, Bawang putih, Kecap manis, Kecap asin, Saus tiram, Minyak wijen, Garam, Merica, Kaldu ayam, Minyak ayam',
+    ingredienst:
+        'Mie telur, Daging ayam fillet, Jamur kancing, Sawi hijau, Bawang merah, Bawang putih, Kecap manis, Kecap asin, Saus tiram, Minyak wijen, Garam, Merica, Kaldu ayam, Minyak ayam',
     price: 20000,
     rate: 4.7,
+    types: [FoodType.populer, FoodType.recommended],
   ),
   Food(
     id: 4,
@@ -75,6 +85,7 @@ List<Food> mockFoods = [
         'Bakso Beranak dengan ukuran jumbo berisi bakso kecil di dalamnya. Sangat cocok untuk pecinta makanan berkuah.',
     price: 30000,
     rate: 4.3,
+    types: [FoodType.new_food ,FoodType.recommended],
   ),
   Food(
     id: 5,
@@ -83,9 +94,11 @@ List<Food> mockFoods = [
     name: 'Ayam Bakar Taliwang',
     description:
         'Ayam Bakar khas Lombok dengan bumbu pedas dan gurih, disajikan dengan plecing kangkung dan sambal terasi.',
-    ingredienst: 'Mie telur, Daging ayam fillet, Jamur kancing, Sawi hijau, Bawang merah, Bawang putih, Kecap manis, Kecap asin, Saus tiram, Minyak wijen, Garam, Merica, Kaldu ayam, Minyak ayam',
+    ingredienst:
+        'Mie telur, Daging ayam fillet, Jamur kancing, Sawi hijau, Bawang merah, Bawang putih, Kecap manis, Kecap asin, Saus tiram, Minyak wijen, Garam, Merica, Kaldu ayam, Minyak ayam',
     price: 50000,
     rate: 4.8,
+    types: [FoodType.populer, FoodType.recommended],
   ),
   Food(
     id: 6,
@@ -94,9 +107,11 @@ List<Food> mockFoods = [
     name: 'Gado-Gado Jakarta',
     description:
         'Gado-Gado dengan sayuran segar, tahu, tempe, dan lontong, disiram saus kacang kental yang gurih.',
-    ingredienst: 'Mie telur, Daging ayam fillet, Jamur kancing, Sawi hijau, Bawang merah, Bawang putih, Kecap manis, Kecap asin, Saus tiram, Minyak wijen, Garam, Merica, Kaldu ayam, Minyak ayam',
+    ingredienst:
+        'Mie telur, Daging ayam fillet, Jamur kancing, Sawi hijau, Bawang merah, Bawang putih, Kecap manis, Kecap asin, Saus tiram, Minyak wijen, Garam, Merica, Kaldu ayam, Minyak ayam',
     price: 20000,
     rate: 4.6,
+    types: [FoodType.new_food, FoodType.populer],
   ),
   Food(
     id: 7,
@@ -105,7 +120,8 @@ List<Food> mockFoods = [
     name: 'Es Cendol Durian',
     description:
         'Minuman es cendol dengan topping buah durian yang manis dan creamy, cocok untuk menghilangkan dahaga.',
-    ingredienst: 'Mie telur, Daging ayam fillet, Jamur kancing, Sawi hijau, Bawang merah, Bawang putih, Kecap manis, Kecap asin, Saus tiram, Minyak wijen, Garam, Merica, Kaldu ayam, Minyak ayam',
+    ingredienst:
+        'Mie telur, Daging ayam fillet, Jamur kancing, Sawi hijau, Bawang merah, Bawang putih, Kecap manis, Kecap asin, Saus tiram, Minyak wijen, Garam, Merica, Kaldu ayam, Minyak ayam',
     price: 25000,
     rate: 4.4,
   ),
