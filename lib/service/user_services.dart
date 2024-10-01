@@ -6,7 +6,7 @@ class UserServices {
     await Future.delayed(Duration(milliseconds: 500));
 
     // Login berhasil
-    return ApiReturnValue();
+    return ApiReturnValue(value: mockUser);
 
     // Login gagal
     // return ApiReturnValue(message: "Email atau password salah");

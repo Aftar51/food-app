@@ -1,7 +1,9 @@
 part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  const MainPage({super.key, this.initialPage = 0});
+
+  final int initialPage;
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -9,7 +11,16 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int selectedPage = 0;
-  PageController pageController = PageController(initialPage: 0);
+
+  @override
+  void initState() {
+    super.initState();
+    selectedPage = widget.initialPage;
+    PageController pageController =
+    PageController(initialPage: 0);
+  }
+
+  PageController pageController =PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +59,12 @@ class _MainPageState extends State<MainPage> {
             child: CustomButtomNavbar(
               selectedIndex: selectedPage,
               onTap: (int index) {
-                setState(() {
-                  selectedPage = index;
-                },);
-                pageController.jumpToPage(index);
+                setState(
+                  () {
+                    selectedPage = index;
+                    },
+                );
+                pageController.jumpToPage(selectedPage);
               },
             ),
           ),

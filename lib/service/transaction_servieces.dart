@@ -7,10 +7,19 @@ class TransactionServieces {
     return ApiReturnValue(value: mockTransaction);
   }
 
-  static Future<ApiReturnValue<List<Transaction>>> submitTransaction(
+  static Future<ApiReturnValue<Transaction>> submitTransaction(
       Transaction transaction) async {
     await Future.delayed(Duration(seconds: 3));
 
-    return ApiReturnValue(value: mockTransaction);
+    return ApiReturnValue(
+      value: transaction.copyWith(
+        id: 123,
+        status: TransactionStatus.pending,
+        total: (
+            transaction.quantity!
+                * transaction.food!.price!
+                * 1.1).toInt(),
+      ),
+    );
   }
 }
