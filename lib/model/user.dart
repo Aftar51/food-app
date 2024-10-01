@@ -9,6 +9,7 @@ class User extends Equatable {
   final String? phoneNumber;
   final String? city;
   final String? picturePath;
+  static String? token;
 
   User({
     this.id,
@@ -20,6 +21,28 @@ class User extends Equatable {
     this.city,
     this.picturePath,
   });
+
+  User copyWith({
+    int? id,
+    String? name,
+    String? email,
+    String? address,
+    String? houseNumber,
+    String? phoneNumber,
+    String? city,
+    String? picturePath,
+  }) {
+    return User(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      address: address ?? this.address,
+      houseNumber: houseNumber ?? this.houseNumber,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      city: city ?? this.city,
+      picturePath: picturePath ?? this.picturePath,
+    );
+  }
 
   @override
   // TODO: implement props
@@ -36,12 +59,12 @@ class User extends Equatable {
 }
 
 User mockUser = User(
-  id: 1,
-  name : 'Batman Joker',
-  email: 'batman@gmail.com',
-  address: 'Jl. Setiabudi no . 193',
-  houseNumber: 'A2',
-  phoneNumber: '08123456789',
-  city: 'Bandung',
-  picturePath: 'https://i.pinimg.com/474x/0b/34/d3/0b34d3c0095229e2b343d6133fe2aa89.jpg'
-);
+    id: 1,
+    name: 'Batman Joker',
+    email: 'batman@gmail.com',
+    address: 'Jl. Setiabudi no . 193',
+    houseNumber: 'A2',
+    phoneNumber: '08123456789',
+    city: 'Bandung',
+    picturePath:
+        'https://i.pinimg.com/474x/0b/34/d3/0b34d3c0095229e2b343d6133fe2aa89.jpg');
