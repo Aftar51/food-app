@@ -47,10 +47,9 @@ class _FoodPageState extends State<FoodPage> {
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     image: NetworkImage(
-                      (context.read<UserCubit>().state as UserLoaded)
-                              .user
-                              .picturePath ??
-                          '',
+                      '${(context.read<UserCubit>().state as UserLoaded)
+                          .user
+                          .picturePath}' ?? '',
                     ),
                     fit: BoxFit.cover,
                   ),
